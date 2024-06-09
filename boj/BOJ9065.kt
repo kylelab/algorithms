@@ -4,7 +4,7 @@ import java.io.InputStreamReader
 
 /**
  * Problem https://www.acmicpc.net/problem/9095
- * TimeComplexity:
+ * TimeComplexity: O(3n승) = 1,2,3 3개가 최대 n개 올 수 있으므로,
  * Algorithim: 브루트 포스/ 재귀/
  * Solution
  * 브루트 포스 문제는 방법의 개수가 최대 몇개인지 계산해봐야한다.
