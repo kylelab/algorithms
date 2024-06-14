@@ -29,32 +29,34 @@ fun main() {
     val (n, m) = br.readLine().split(" ").map { it.toInt() }
     br.close()
 
+    val a: IntArray = IntArray(10)
+    val selected: BooleanArray = BooleanArray(10)
+    
+    /**
+     * index: 선택하는 수의 위치
+     * n: 총 갯수
+     * m: 선택 갯수
+     */
+    fun go(
+        index: Int,
+        n: Int,
+        m: Int,
+    ) {
+        if (index == m) {
+            println(a.filter { it > 0 }.joinToString(" "))
+            return
+        }
+    
+        for (i in 1..n) {
+            if (selected[i]) continue
+            selected[i] = true
+            a[index] = i // index는 선택하는 수의 위치, i는 선택한 수가 된다. i는 1-n 중의 자연수 이므로
+            go(index + 1, n, m)
+            selected[i] = false
+        }
+    }
+    
+
     go(0, n, m)
 }
 
-val a: IntArray = IntArray(10)
-val selected: BooleanArray = BooleanArray(10)
-
-/**
- * index: 선택하는 수의 위치
- * n: 총 갯수
- * m: 선택 갯수
- */
-fun go(
-    index: Int,
-    n: Int,
-    m: Int,
-) {
-    if (index == m) {
-        println(a.filter { it > 0 }.joinToString(" "))
-        return
-    }
-
-    for (i in 1..n) {
-        if (selected[i]) continue
-        selected[i] = true
-        a[index] = i // index는 선택하는 수의 위치, i는 선택한 수가 된다. i는 1-n 중의 자연수 이므로
-        go(index + 1, n, m)
-        selected[i] = false
-    }
-}
