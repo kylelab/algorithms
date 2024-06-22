@@ -1,6 +1,4 @@
-
-
-import java.util.Scanner
+import java.util.*
 
 /**
  * Problem
@@ -21,23 +19,22 @@ fun main() {
 }
 
 // 앞 index에서 사용했는지 확인 용도, 최대 n개(1부터 시작하므로 n+1)
-val c = BooleanArray(9) { false }
+private val c = BooleanArray(9) { false }
 
 // 수열 저장용 최대 m개
-val a = IntArray(8)
+private val a = IntArray(8)
 
 private fun go(
     index: Int,
     start: Int,
     n: Int,
     m: Int,
-)  {
+) {
     // 재귀 종료 조건/ 0부터 m-1개를 선택했기때문에 m번째는 할 필요 없음
-    if (index == m)
-        {
-            println(a.filter { it != 0 }.joinToString(separator = " "))
-            return
-        }
+    if (index == m) {
+        println(a.filter { it != 0 }.joinToString(separator = " "))
+        return
+    }
 
     for (i in start..n) {
         if (c[i]) continue // 이미 앞 index에서 사용했다면 다음 수로 넘어감

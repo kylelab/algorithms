@@ -1,11 +1,10 @@
-
 import java.io.BufferedReader
 import java.io.InputStreamReader
 
 /**
  * Problem : https://www.acmicpc.net/problem/15650
  * TimeComplexity: O(N!) = N*(N-1)*(N-2)...
- * Algorithim: 브루트 포스/ 재귀/
+ * Algorithm: 브루트 포스/ 재귀/
  * Solution
  * 1 - N까지 자연수 중에서 중복없이 M개를 고르는 "오름차순" 수열
  *
@@ -34,14 +33,14 @@ fun main() {
     go(0, 1, n, m)
 }
 
-val a: IntArray = IntArray(10)
+private val a: IntArray = IntArray(10)
 
 /**
  * index: 선택하는 수의 위치
  * n: 총 갯수
  * m: 선택 갯수
  */
-fun go(
+private fun go(
     index: Int,
     start: Int,
     n: Int,

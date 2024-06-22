@@ -1,4 +1,3 @@
-
 import java.io.BufferedReader
 import java.io.InputStreamReader
 
@@ -50,7 +49,7 @@ fun main() {
     }
 }
 
-fun go(
+private fun go(
     cnt: Int,
     sum: Int,
     n: Int,
@@ -72,9 +71,9 @@ fun go(
 /**
  * 이렇게 하면 TC마다 0으로 초기화 해줘야하니까 위 로직이 더 깔끔핟.
  */
-var ans = 0
+private var ans = 0
 
-fun go2(
+private fun go2(
     cnt: Int,
     sum: Int,
     n: Int,

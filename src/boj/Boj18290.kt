@@ -1,4 +1,3 @@
-
 import java.io.BufferedReader
 import java.io.InputStreamReader
 
@@ -10,20 +9,20 @@ import java.io.InputStreamReader
  * NxM 행렬이므로 하나씩 돌면서 풀 수 있으나, 1 <= N, M <= 10 이고, (NM)4승 이므로 1억으로 1초가 넘어가게 된다.
  * 행렬로 풀되 0부터 돌게 되면 너무 많이 돌게 되므로 현재부터 다시 도는 것으로 한다.
  */
-var n: Int = 0 // 행
-var m: Int = 0 // 열
-var k: Int = 0 // 선택할 갯수
-var array: Array<IntArray> = emptyArray()
+private var n: Int = 0 // 행
+private var m: Int = 0 // 열
+private var k: Int = 0 // 선택할 갯수
+private var array: Array<IntArray> = emptyArray()
 
-val c =
+private val c =
     Array<BooleanArray>(10) {
         BooleanArray(10) { false }
     }
 
-val nearX = arrayOf(0, 0, 1, -1)
-val nearY = arrayOf(1, -1, 0, 0)
+private val nearX = arrayOf(0, 0, 1, -1)
+private val nearY = arrayOf(1, -1, 0, 0)
 
-var ans: Int = -Int.MAX_VALUE
+private var ans: Int = -Int.MAX_VALUE
 
 fun main() {
     val br: BufferedReader = BufferedReader(InputStreamReader(System.`in`))
@@ -45,7 +44,7 @@ fun main() {
     println(ans)
 }
 
-fun go(
+private fun go(
     cnt: Int,
     sum: Int,
 ) {
@@ -78,7 +77,7 @@ fun go(
     }
 }
 
-fun goFast(
+private fun goFast(
     px: Int,
     py: Int,
     cnt: Int,
