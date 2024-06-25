@@ -1,13 +1,12 @@
-
 import java.io.BufferedReader
 import java.io.InputStreamReader
 
 /**
  * Problem : https://www.acmicpc.net/problem/15654
  * TimeComplexity: O(N!) = N*(N-1)*(N-2)...
- * Algorithim: 브루트 포스/ 재귀/
+ * Algorithim: 브루트 포스/ 재귀/ 순열
  * Solution
- * 1 - N까지 자연수 중에서 중복없이 M개를 고르는 수열
+ * 1 - N까지 자연수 중에서 중복없이 M개를 고르는 순열
  *
  *
  * 1 위치에는 n개가 올 수 있고
