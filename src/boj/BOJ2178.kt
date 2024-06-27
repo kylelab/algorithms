@@ -14,7 +14,8 @@ import java.util.*
  * 이 문제를 출발점에서부터 시작해 가능한 모든 경로를 탐색하는 DFS로 접근한다면, 한 번 도착했던 칸도 다른 탐색 경로에서 다시 탐색하게되어 비효율이 발생할 수 있다.
  * 이 문제를 출발점에서부터 시작해 가능한 모든 경로를 탐색하는 BFS로 접근한다면, 같은 칸에 대해서 최초로 탐색되었을 때가 최단 경로이므로 같은 정점을 다시 방문할 필요가 없다.
  *
- *
+ * (1, 1)에서 출발하여 (N, M)의 위치로 이동할 때 지나야 하는 최소의 칸 수를 구하는 프로그램을 작성하시오. 한 칸에서 다른 칸으로 이동할 때, 서로 인접한 칸으로만 이동할 수 있다.
+ * 탐색하는 한텀을 한칸씩 이동했다고 생각하면 된다.
  *
  */
 private var n: Int = 0
@@ -43,7 +44,7 @@ fun main() {
     println(ans)
 }
 
-fun bfs(point: Point, graph: Array<IntArray>, visited: Array<IntArray>, n: Int, m: Int): Int {
+private fun bfs(point: Point, graph: Array<IntArray>, visited: Array<IntArray>, n: Int, m: Int): Int {
     val queue = LinkedList<Point>()
     queue.offer(point)
     visited[point.row][point.col] = 1
@@ -67,5 +68,5 @@ fun bfs(point: Point, graph: Array<IntArray>, visited: Array<IntArray>, n: Int, 
     return visited[n - 1][m - 1]
 }
 
-data class Point(val row: Int, val col: Int)
+private data class Point(val row: Int, val col: Int)
 
