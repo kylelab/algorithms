@@ -12,6 +12,8 @@ import java.io.InputStreamReader
  * 시간 제한에 걸릴 수 도 있으므로 캐시를 사용하자
  * F(n) = F(n-1) + F(n-2)(n>=2)
  *
+ * n이 46이상이면 Int 범위를 넘어간다.
+ * n이 92이상이면 Long 범위를 넘어간다.
  */
 
 fun main() {
@@ -20,10 +22,13 @@ fun main() {
     br.close()
 
     val cache = mutableMapOf<Int, Long>()
-    println(fibonacci(n, cache))
+//    println(fibonacci(n, cache))
 //    println(fibonacci2(n))
+//    println(fibonacci3(n, cache))
+    println(fibonacci4(n, cache))
 }
 
+// 하향식 방법// cache 사용
 private fun fibonacci(n: Int, cache: MutableMap<Int, Long>): Long {
     if (n == 0) {
         return 0
@@ -43,6 +48,7 @@ private fun fibonacci(n: Int, cache: MutableMap<Int, Long>): Long {
     }
 }
 
+// 가장 기본 방법
 private fun fibonacci2(n: Int): Long {
     if (n == 0) {
         return 0
@@ -55,7 +61,27 @@ private fun fibonacci2(n: Int): Long {
     return fibonacci2(n - 1) + fibonacci2(n - 2)
 }
 
+// 상향식 방법1
+private fun fibonacci3(n: Int, cache: MutableMap<Int, Long>): Long {
+    cache[0] = 0
+    cache[1] = 1
 
+    for (i in 2..n) {
+        cache[i] = cache.getOrDefault(i - 1, 0) + cache.getOrDefault(i - 2, 0)
+    }
+    return cache.getOrDefault(n, 0)
+}
+
+// 상향식 방법2
+private fun fibonacci4(n: Int, cache: MutableMap<Int, Long>): Long {
+    cache[0] = 0
+    cache[1] = 1
+    for (i in 0..n) {
+        cache[i + 1] = cache.getOrDefault(i + 1, 0) + cache.getOrDefault(i, 0)
+        cache[i + 2] = cache.getOrDefault(i + 2, 0) + cache.getOrDefault(i, 0)
+    }
+    return cache.getOrDefault(n, 0)
+}
 
 
 
