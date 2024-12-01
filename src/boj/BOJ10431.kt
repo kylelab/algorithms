@@ -5,8 +5,8 @@ import java.io.InputStreamReader
 
 
 /**
- * Problem : https://www.acmicpc.net/problem/10431
- * TimeComplexity:
+ * Problem: https://www.acmicpc.net/problem/10431
+ * TimeComplexity: O(T*n^2)
  * Type: 삽입정렬
  * 문제 파악
  * 구해야하는 값:
